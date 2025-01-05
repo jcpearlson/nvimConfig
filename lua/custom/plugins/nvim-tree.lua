@@ -2,7 +2,7 @@
 
 return {
 	"nvim-tree/nvim-tree.lua",
-	--	dependencies = "nvim-tree/nvim-web-devicons",
+	dependencies = "nvim-tree/nvim-web-devicons",
 	config = function()
 		local nvimtree = require("nvim-tree")
 
@@ -11,32 +11,39 @@ return {
 		vim.g.loaded_netrwPlugin = 1
 
 		nvimtree.setup({
+			view = {
+				width = 35,
+				relativenumber = true,
+			},
+			-- change folder arrow icons
 			renderer = {
+				indent_markers = {
+					enable = true,
+				},
 				icons = {
 					glyphs = {
-						default = "-", -- Default file
-						symlink = "~", -- Symlink
 						folder = {
-							arrow_closed = ">", -- Closed folder arrow
-							arrow_open = "v", -- Open folder arrow
-							default = "+", -- Folder
-							open = "-", -- Open folder
-							empty = "+", -- Empty folder
-							empty_open = "-", -- Open empty folder
-							symlink = "~", -- Symlinked folder
-							symlink_open = "~", -- Open symlinked folder
-						},
-						git = {
-							unstaged = "!",
-							staged = "+",
-							unmerged = "=",
-							renamed = "→",
-							untracked = "?",
-							deleted = "-",
-							ignored = "·",
+							arrow_closed = "", -- arrow when folder is closed
+							arrow_open = "", -- arrow when folder is open
 						},
 					},
 				},
+			},
+			-- disable window_picker for
+			-- explorer to work well with
+			-- window splits
+			actions = {
+				open_file = {
+					window_picker = {
+						enable = false,
+					},
+				},
+			},
+			filters = {
+				custom = { ".DS_Store" },
+			},
+			git = {
+				ignore = false,
 			},
 		})
 
