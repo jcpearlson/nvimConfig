@@ -27,18 +27,18 @@ return {
 		local cwd_line = "  " .. vim.fn.getcwd()
 
 		-- NOTE: these are os specific so we have to check if we are on windows or unix
-		--	local battery_line = "  " .. vim.fn.system("acpi | awk '{print $4}'"):gsub(",", "")
-		local battery_line
 		if is_windows then
 			battery_line = "  plugged in :)"
 		else
 			battery_line = "  " .. vim.fn.system("acpi | awk '{print $4}'"):gsub(",", ""):gsub("\n", "")
 		end
 
-		local git_branch = vim.fn.system("git branch --show-current 2>/dev/null"):gsub("\n", "")
-		local branch_line = git_branch ~= "" and ("  " .. git_branch) or "  Not in a Git repo"
+		-- TODO: implement showing the current github branch here
+		local git_branch = vim.fn.system("git branch --show-current"):gsub("\n", "")
+		local branch_line = git_branch ~= "" and ("  " .. git_branch) or "  Not in a Git repo"
+		branch_line = " "
 
-		-- Function to update the time
+		-- Function to refresh the time
 		local function update_time()
 			time_line = "  " .. os.date("%I:%M:%S %p")
 			alpha.redraw()
