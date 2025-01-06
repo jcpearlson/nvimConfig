@@ -43,6 +43,8 @@ require("lazy").setup({
 
 	require("kickstart/plugins/treesitter"),
 
+	require("kickstart/plugins/indent_line"),
+
 	--  NOTE: All custom plugins from here on out
 	require("custom/plugins/nvim-tree"),
 
