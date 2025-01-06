@@ -22,14 +22,13 @@ require("lazy").setup({
 
 	-- modular approach: using `require 'path/name'` will
 	-- include a plugin definition from file lua/path/name.lua
-
 	require("kickstart/plugins/gitsigns"),
 
 	require("kickstart/plugins/which-key"),
 
 	require("kickstart/plugins/telescope"),
 
-	require("kickstart/plugins/lspconfig"),
+  require("kickstart/plugins/lspconfig"),
 
 	require("kickstart/plugins/conform"),
 
@@ -44,6 +43,8 @@ require("lazy").setup({
 	require("kickstart/plugins/treesitter"),
 
 	require("kickstart/plugins/indent_line"),
+
+	require("kickstart/plugins/autopairs"),
 
 	--  NOTE: All custom plugins from here on out
 	require("custom/plugins/nvim-tree"),
@@ -62,6 +63,13 @@ require("lazy").setup({
 
 	require("custom/plugins/init"),
 
+	require("custom/plugins/comment"),
+
+	require("custom/plugins/substitute"),
+
+	require("custom/plugins/surround"),
+
+	require("custom/plugins/trouble"),
 	-- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
 	-- init.lua. If you want these files, they are in the repository, so you can just download them and
 	-- place them in the correct locations.
@@ -89,7 +97,7 @@ require("lazy").setup({
 	-- you can continue same window with `<space>sr` which resumes last telescope search
 }, {
 	ui = {
-		-- If you are using a Nerd Font: set icons to an empty table which will use the
+		-- TODO: check here If you are using a Nerd Font: set icons to an empty table which will use the
 		-- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
 		icons = vim.g.have_nerd_font and {} or {
 			cmd = "⌘",
