@@ -28,7 +28,7 @@ require("lazy").setup({
 
 	require("kickstart/plugins/telescope"),
 
-  require("kickstart/plugins/lspconfig"),
+	require("kickstart/plugins/lspconfig"),
 
 	require("kickstart/plugins/conform"),
 
@@ -97,7 +97,7 @@ require("lazy").setup({
 	-- you can continue same window with `<space>sr` which resumes last telescope search
 }, {
 	ui = {
-		-- TODO: check here If you are using a Nerd Font: set icons to an empty table which will use the
+		--If you are using a Nerd Font: set icons to an empty table which will use the
 		-- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
 		icons = vim.g.have_nerd_font and {} or {
 			cmd = "⌘",
