@@ -195,7 +195,8 @@ return {
 				-- ts_ls = {},
 				--
 
-				ruff = {},
+				--ruff = {},
+				pyright = {},
 				prettier = {}, -- prettier formatter
 				isort = {},
 				black = {},
