@@ -18,8 +18,14 @@ return {
 			end
 		end
 
+		-- Check OS
+		local os_value = OS()
+
 		-- Check if the OS is Windows
-		local is_windows = OS() == "win"
+		local is_windows = os_value == "win"
+
+		-- Check if OS is Unix
+		local is_unix = os_value == "unix"
 
 		-- Define variables for dynamic time and working directory
 		local date_line = "  " .. os.date("%Y-%m-%d")
@@ -29,8 +35,13 @@ return {
 		-- NOTE: these are os specific so we have to check if we are on windows or unix
 		if is_windows then
 			battery_line = "  plugged in :)"
-		else
-			battery_line = "  " .. vim.fn.system("acpi | awk '{print $4}'"):gsub(",", ""):gsub("\n", "")
+		elseif is_unix then
+			-- Unix is my Mac laptop so here we display actual power info
+			local battery_info = vim.fn.system("pmset -g batt | grep 'InternalBattery'")
+			local percentage = battery_info:match("(%d+%%)")
+			local status = battery_info:match("(%a+ing)")
+
+			battery_line = "  " .. percentage .. " (" .. status .. ")"
 		end
 
 		-- TODO: implement showing the current github branch here
