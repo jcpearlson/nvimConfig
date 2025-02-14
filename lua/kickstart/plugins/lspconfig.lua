@@ -195,11 +195,13 @@ return {
 				-- ts_ls = {},
 				--
 
-				--ruff = {},
+				ruff = {},
 				pyright = {},
 				prettier = {}, -- prettier formatter
 				isort = {},
+				mypy = {},
 				black = {},
+				yapf = {},
 
 				lua_ls = {
 					-- cmd = { ... },

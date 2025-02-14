@@ -31,6 +31,13 @@ return {
 					lsp_format = lsp_format_opt,
 				}
 			end,
+
+			formatters = {
+				yapf = {
+					command = "yapf",
+					args = { "--style", "{based_on_style: pep8, indent_width: 2}" },
+				},
+			},
 			formatters_by_ft = {
 				-- Conform can also run multiple formatters sequentially
 				javascript = { "prettier" },
@@ -46,7 +53,7 @@ return {
 				graphql = { "prettier" },
 				liquid = { "prettier" },
 				lua = { "stylua" },
-				python = { "isort", "black" },
+				python = { "isort", "yapf" },
 				--
 				-- You can use 'stop_after_first' to run the first available formatter from the list
 				-- javascript = { "prettierd", "prettier", stop_after_first = true },
