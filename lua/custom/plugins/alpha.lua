@@ -28,7 +28,7 @@ return {
 		local is_unix = os_value == "unix"
 
 		-- Define variables for dynamic time and working directory
-		local date_line = "  " .. os.date("%Y-%m-%d")
+		local date_line = "  " .. os.date("%Y-%m-%d") .. " (" .. os.date("%B") .. ")"
 		local time_line = "  " .. os.date("%I:%M:%S %p")
 		local cwd_line = "  " .. vim.fn.getcwd()
 
