@@ -97,5 +97,7 @@ return {
 
 		-- Disable folding on alpha buffer
 		vim.cmd([[autocmd FileType alpha setlocal nofoldenable]])
+
+		-- TODO: Here I am going to implemet some kind of 'chess puzzle of the day' feature for a cool brain teaser to start the day off right.
 	end,
 }
