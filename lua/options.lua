@@ -7,7 +7,7 @@
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 
 -- Fix tab spacing
 vim.opt.shiftwidth = 2
@@ -16,7 +16,6 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.linebreak = true
 --vim.opt.wrap = false
-
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
 
@@ -68,5 +67,7 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+vim.cmd("syntax enable")
 
 -- vim: ts=2 sts=2 sw=2 et

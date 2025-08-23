@@ -197,11 +197,6 @@ return {
 
 				ruff = {},
 				pyright = {},
-				prettier = {}, -- prettier formatter
-				isort = {},
-				mypy = {},
-				black = {},
-				yapf = {},
 
 				lua_ls = {
 					-- cmd = { ... },
@@ -232,6 +227,11 @@ return {
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
+				"prettier", -- JS/TS formatter
+				"isort", -- Python import sorter
+				"black", -- Python formatter
+				"mypy", -- Python type checker
+				"yapf", -- Python formatter
 			})
 			local mason_tool_installer = require("mason-tool-installer")
 			mason_tool_installer.setup({ ensure_installed = ensure_installed })
@@ -251,4 +251,3 @@ return {
 		end,
 	},
 }
--- vim: ts=2 sts=2 sw=2 et
