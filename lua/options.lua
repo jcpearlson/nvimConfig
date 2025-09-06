@@ -70,4 +70,14 @@ vim.opt.scrolloff = 10
 
 vim.cmd("syntax enable")
 
+-- Enable spellcheck automatically for markdown, quarto, and text files
+vim.api.nvim_create_augroup("spellcheck", { clear = true })
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = { "*.md", "*.qmd", "*.txt" },
+	callback = function()
+		vim.opt_local.spell = true
+		vim.opt_local.spelllang = "en_us"
+	end,
+})
+
 -- vim: ts=2 sts=2 sw=2 et
